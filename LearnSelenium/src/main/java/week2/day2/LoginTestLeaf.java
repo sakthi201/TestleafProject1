@@ -1,5 +1,7 @@
 package week2.day2;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +15,8 @@ static String Password="crmsfa";
 		d.manage().window().maximize();
 		String Title=d.getTitle();
 		System.out.println(Title);
-		d.findElement(By.id("username")).sendKeys("demosalesmanager");
+		d.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		d.findElement(By.id("usernam")).sendKeys("demosalesmanager");
 		WebElement pwd=d.findElement(By.id("password"));
 		pwd.sendKeys("crmsfa");
 		d.findElement(By.className("decorativeSubmit")).click();
